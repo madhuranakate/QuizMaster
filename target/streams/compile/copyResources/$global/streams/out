@@ -1,0 +1,3 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/madhura/Applications/hmrc-development-environment/hmrc/QuizMaster/conf/application.conf,/home/madhura/Applications/hmrc-development-environment/hmrc/QuizMaster/target/scala-2.12/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/madhura/Applications/hmrc-development-environment/hmrc/QuizMaster/conf/routes,/home/madhura/Applications/hmrc-development-environment/hmrc/QuizMaster/target/scala-2.12/classes/routes)[0m
