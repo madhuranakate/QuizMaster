@@ -1,0 +1,30 @@
+@import models.{Category,Quiz}
+
+@(title: String, categories: Seq[Category])(implicit messages: Messages)
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/bootstrap.css")' />
+        <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/quizmaster.css")' />
+        <script src='@routes.Assets.versioned("javascripts/jquery.js")'></script>
+        <script src='@routes.Assets.versioned("javascripts/bootstrap.js")'></script>
+        <title>@title</title>
+    </head>
+
+    <body>
+
+        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark">
+            <div class="col-md-5 p-lg-5 mx-auto my-5">
+                <h1 class="display-4 font-weight-normal site-title">@title</h1>
+                <p class="lead font-weight-normal">@messages("site.description")</p>
+                <a class="btn btn-outline-secondary" href="#">@messages("site.button.start")</a>
+            </div>
+            <div class="product-device box-shadow d-none d-md-block"></div>
+            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+        </div>
+
+
+        @components.categories(categories)
+    </body>
+</html>

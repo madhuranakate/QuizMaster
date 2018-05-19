@@ -1,0 +1,11 @@
+.bg-dark {
+    color: whitesmoke;
+}
+
+.bg-dark .site-title {
+    font-size: 4.5rem;
+}
+
+.bg-dark .btn-outline-secondary {
+    color: whitesmoke;
+}
