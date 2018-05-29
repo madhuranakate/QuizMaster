@@ -1,0 +1,23 @@
+@import models.{Category,Quiz}
+
+@(content: Html)(implicit messages: Messages)
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/bootstrap.css")' />
+        <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/quizmaster.css")' />
+        <title>@messages("site.name")</title>
+    </head>
+
+    <body>
+
+        @components.banner()
+
+        @content
+
+        <script src='@routes.Assets.versioned("javascripts/jquery.js")'></script>
+        <script src='@routes.Assets.versioned("javascripts/bootstrap.js")'></script>
+
+    </body>
+</html>

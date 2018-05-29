@@ -1,14 +1,17 @@
-@(categories: Seq[Category])
+@(categoryList: Seq[Category])(implicit messages: Messages)
+
+@base_template{
 
 <div class="accordion" id="accordionExample">
 
-    @for((category, i) <- categories.zipWithIndex) {
+    @for((category, i) <- categoryList.zipWithIndex) {
     <div class="card">
         <div class="card-header" id="headingOne">
             <h5 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#@i" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link" href="#" data-toggle="collapse" data-target="#@i" aria-expanded="true" aria-controls="collapseOne">
                     @category.name
                 </button>
+                <a class="float-right" href="@routes.CategoryController.onPageLoad(category.name)">@messages("site.view.all")</a>
             </h5>
         </div>
 
@@ -27,3 +30,4 @@
     </div>
     }
 </div>
+}

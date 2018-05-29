@@ -1,2 +1,4 @@
+site.name = QuizMaster
 site.description = The answers based on your answers
 site.button.start = Get Started
+site.view.all = View all
