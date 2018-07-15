@@ -6,4 +6,6 @@ case class Quiz(name: String, link: String)
 
 object Quiz {
   implicit val format = Json.format[Quiz]
+
+
 }

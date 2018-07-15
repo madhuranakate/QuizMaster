@@ -1,28 +1,27 @@
 package controllers
 
+import connectors.MongoConnector
 import javax.inject._
 import models.Category
-import models.Category.catReads
 import play.api.Configuration
 import play.api.mvc._
 import views.html.home
+import scala.concurrent.ExecutionContext.Implicits.global
+
 
 class HomeController @Inject()(val cc: ControllerComponents,
-                               config: Configuration
+                               config: Configuration,
+                               dbConn: MongoConnector,
                               ) extends ParentController(cc, config) {
 
-  def onPageLoad = Action {
+  def onPageLoad = Action.async {
     implicit request: Request[AnyContent] =>
-        println(request.body)
-      val categoryList: Seq[Category] =
-        for (i <- 0 to 1)
-          yield {
-            json.validate[Category](catReads(i)).get
-          }
 
-
-
-      Ok(home(categoryList))
+      dbConn.save("quizzy", json)
+      dbConn.fetch("quizzy").map { jsonz =>
+        val cat = (jsonz \ "categories").as[Seq[Category]]
+        Ok(home(cat))
+      }
   }
 
 }
